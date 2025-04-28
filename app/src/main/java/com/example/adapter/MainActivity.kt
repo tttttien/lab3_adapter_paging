@@ -12,13 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Construct the data source
-        val arrayOfUsers = ArrayList<User>()
-
-//        // Populate the data
-//        arrayOfUsers.add(User("Hung", "Quan 7"))
-//        arrayOfUsers.add(User("Chau", "An Nhon"))
-//        arrayOfUsers.add(User("Mai", "Quan 8"))
-
         val jsonArray = JSONArray("[{\"name\":\"Hung\",\"hometown\":\"Quan 7\"},{\"name\":\"Chau\",\"hometown\":\"An Nhon\"}]")
         val users = User.fromJson(jsonArray)
 
