@@ -3,6 +3,7 @@ package com.example.adapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ListView
+import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,13 +14,16 @@ class MainActivity : AppCompatActivity() {
         // Construct the data source
         val arrayOfUsers = ArrayList<User>()
 
-        // Populate the data
-        arrayOfUsers.add(User("Hung", "Quan 7"))
-        arrayOfUsers.add(User("Chau", "An Nhon"))
-        arrayOfUsers.add(User("Mai", "Quan 8"))
+//        // Populate the data
+//        arrayOfUsers.add(User("Hung", "Quan 7"))
+//        arrayOfUsers.add(User("Chau", "An Nhon"))
+//        arrayOfUsers.add(User("Mai", "Quan 8"))
+
+        val jsonArray = JSONArray("[{\"name\":\"Hung\",\"hometown\":\"Quan 7\"},{\"name\":\"Chau\",\"hometown\":\"An Nhon\"}]")
+        val users = User.fromJson(jsonArray)
 
         // Create the adapter
-        val adapter = UsersAdapter(this, arrayOfUsers)
+        val adapter = UsersAdapter(this, users)
 
         // Attach the adapter to the ListView
         val listView = findViewById<ListView>(R.id.lvItems)
